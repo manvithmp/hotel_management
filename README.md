@@ -1,4 +1,4 @@
-refresh the page and wait for 30 seconds. 
+refresh the page and wait for 30 seconds for the backend server to load.
 
 
 
