@@ -18,12 +18,14 @@ const OrderSummaryChart = () => {
     breakdown: []
   });
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
-    fetch(`http://localhost:5000/api/chart/order-summary?range=${range}`)
+    fetch(`${API_URL}/api/chart/order-summary?range=${range}`)
       .then(res => res.json())
       .then(setSummary)
       .catch(console.error);
-  }, [range]);
+  }, [range, API_URL]);
 
   const data = {
     labels: ['Dine In', 'Take Away'],

@@ -14,21 +14,26 @@ function Dashboard() {
     { name: 'Kenji', orders: 0 }
   ]);
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const fetchData = async () => {
+      try {
+        const metricsRes = await fetch(`${API_URL}/api/dashboard/metrics`);
+        setMetrics(await metricsRes.json());
 
-      const metricsRes = await fetch('http://localhost:5000/api/dashboard/metrics');
-      setMetrics(await metricsRes.json());
+        const tablesRes = await fetch(`${API_URL}/api/dashboard/tables`);
+        setTables(await tablesRes.json());
 
-      const tablesRes = await fetch('http://localhost:5000/api/dashboard/tables');
-      setTables(await tablesRes.json());
-
-      const chefsRes = await fetch('http://localhost:5000/api/dashboard/chefs');
-      setChefs(await chefsRes.json());
+        const chefsRes = await fetch(`${API_URL}/api/dashboard/chefs`);
+        setChefs(await chefsRes.json());
+      } catch (error) {
+        console.error("Error fetching dashboard data:", error);
+      }
     };
 
     fetchData();
-  }, []);
+  }, [API_URL]);
 
   return (
     <div className="dashboard-container">

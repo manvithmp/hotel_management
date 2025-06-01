@@ -23,8 +23,10 @@ function RevenueChart() {
   const [range, setRange] = useState('weekly');
   const [data, setData] = useState([]);
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/chart/revenue?range=${range}`)
+    fetch(`${API_URL}/api/chart/revenue?range=${range}`)
       .then(res => res.json())
       .then(apiData => {
         const processed = Array.isArray(apiData)
@@ -38,7 +40,7 @@ function RevenueChart() {
         setData(processed);
       })
       .catch(console.error);
-  }, [range]);
+  }, [range, API_URL]);
 
   const totalRevenue = data.reduce((sum, d) => sum + (d.revenue || 0), 0);
 
