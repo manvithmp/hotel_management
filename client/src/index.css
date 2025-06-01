@@ -1,0 +1,9 @@
+.app-container {
+    display: flex;
+  }
+  
+  .main-content {
+    padding: 5px;
+    width: 100%;
+  }
+  

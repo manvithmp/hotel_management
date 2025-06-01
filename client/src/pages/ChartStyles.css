@@ -1,0 +1,81 @@
+.chart-container {
+  background: #f7faf7;
+  border-radius: 10px;
+  padding: 18px 16px;
+  margin: 0;
+  width: 100%;
+}
+.chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.chart-header h3 {
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: 500;
+}
+.chart-desc {
+  color: #b9bcb7;
+  font-size: 13px;
+  margin-top: 2px;
+  margin-bottom: 8px;
+}
+.ordersummary-top-row {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 8px;
+}
+.order-type-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px 20px;
+  text-align: center;
+  flex: 1 1 0;
+  box-shadow: 0 1px 4px rgba(80,80,80,0.04);
+}
+.order-type-value {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+.order-type-label {
+  font-size: 1em;
+  color: #848484;
+  margin-top: 2px;
+}
+.ordersummary-bottom-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.ordersummary-details {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+.ordersummary-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+.ordersummary-label {
+  width: 65px;
+}
+.ordersummary-percent {
+  width: 34px;
+  color: #a2a2a2;
+}
+.ordersummary-bar-bg {
+  flex: 1 1 0;
+  height: 8px;
+  background: #e6ece6;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.ordersummary-bar-fill {
+  height: 100%;
+  border-radius: 5px;
+}
