@@ -53,7 +53,7 @@ function RevenueChart() {
         background: "#fff",
         padding: "1.5rem 2rem 1.5rem 1.5rem",
         minHeight: 350,
-        maxWidth: 650,
+        maxWidth: 350,
         margin: "0 auto"
       }}
     >

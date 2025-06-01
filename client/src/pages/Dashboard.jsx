@@ -13,6 +13,7 @@ function Dashboard() {
     { name: 'Aditya', orders: 0 },
     { name: 'Kenji', orders: 0 }
   ]);
+  const [filter, setFilter] = useState(''); 
 
   const API_URL = import.meta.env.VITE_API_URL;
 
@@ -35,10 +36,22 @@ function Dashboard() {
     fetchData();
   }, [API_URL]);
 
+  const filteredChefs = chefs.filter(chef =>
+    chef.name.toLowerCase().includes(filter.toLowerCase())
+  );
+  const filteredTables = tables.filter(table =>
+    String(table.number).includes(filter) ||
+    (table.reserved ? 'reserved' : 'available').includes(filter.toLowerCase())
+  );
+
   return (
     <div className="dashboard-container">
       <div className="filter-bar">
-        <input placeholder="Filter..." />
+        <input
+          placeholder="Filter..."
+          value={filter}
+          onChange={e => setFilter(e.target.value)}
+        />
         <div className="dropdown"></div>
       </div>
 
@@ -77,7 +90,7 @@ function Dashboard() {
             </div>
           </div>
           <div className="table-grid-5">
-            {tables.map((table) => (
+            {filteredTables.map((table) => (
               <div
                 key={table._id}
                 className={`table-block-5 ${table.reserved ? 'reserved' : 'available'}`}
@@ -98,7 +111,7 @@ function Dashboard() {
             </tr>
           </thead>
           <tbody>
-            {chefs.map((chef, index) => (
+            {filteredChefs.map((chef, index) => (
               <tr key={index}>
                 <td>{chef.name}</td>
                 <td>{String(chef.orders).padStart(2, '0')}</td>

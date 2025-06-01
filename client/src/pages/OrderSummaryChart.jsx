@@ -37,13 +37,32 @@ const OrderSummaryChart = () => {
 
   return (
     <div className="order-summary-chart">
-      <div className="chart-header">
-        <h3>Order Summary</h3>
-        <select className="dropdown" value={range} onChange={e => setRange(e.target.value)}>
-          {rangeOptions.map(opt => (
-            <option key={opt.value} value={opt.value}>{opt.label}</option>
-          ))}
-        </select>
+      <div className="chart-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h3 style={{ margin: 0 }}>Order Summary</h3>
+        <div style={{ position: 'relative' }}>
+          <select
+            className="dropdown"
+            style={{
+              padding: '8px 32px 8px 12px',
+              borderRadius: 8,
+              border: '1px solidrgb(0, 0, 0)',
+              background: '#fff url("data:image/svg+xml;utf8,<svg fill=\'%232196f3\' height=\'18\' viewBox=\'0 0 24 24\' width=\'18\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M7 10l5 5 5-5z\'/></svg>") no-repeat right 10px center/18px 18px',
+              appearance: 'none',
+              fontSize: 16,
+              color: '#222',
+              fontWeight: 500,
+              minWidth: 120,
+              cursor: 'pointer',
+              transition: 'border 0.2s'
+            }}
+            value={range}
+            onChange={e => setRange(e.target.value)}
+          >
+            {rangeOptions.map(opt => (
+              <option key={opt.value} value={opt.value}>{opt.label}</option>
+            ))}
+          </select>
+        </div>
       </div>
       <Pie data={data} />
       <div style={{ marginTop: 16 }}>
